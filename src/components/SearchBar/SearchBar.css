@@ -1,0 +1,15 @@
+.searchBar {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 70%;  
+}
+
+.input {
+    border-radius: 10px;
+    border: none;
+
+}
+
+.btn {
+
+}

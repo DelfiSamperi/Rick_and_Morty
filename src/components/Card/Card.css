@@ -1,0 +1,40 @@
+.card{
+    background-color: rgba(224, 183, 243, .7);
+    border-radius: 10px;
+    position: relative;
+    width: 140px;
+    height: 280px;
+    margin: 20px;
+    padding: 10px;
+    &:hover{
+        transform: scale(0.8);
+    } 
+}
+
+.delete {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.info{
+    color: rgb(34, 34, 34);
+    padding: 5px;  
+}
+
+.info h2{
+    margin: 2px;
+    font-size: 15px;
+}
+
+.info h4 {
+    margin: 2px;
+    font-size: 10px;
+}
+
+.image{
+    width: 130px;
+    border-radius: 20%;
+    margin: 15px;
+}
