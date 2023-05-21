@@ -7,7 +7,7 @@ import Card from './components/Card/Card';
 function App() {
    return (
       <div className='App'>
-         <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+         <SearchBar onSearch={(characterID) => window.alert(characterID) } />
          <Cards characters={characters} />
          <Card
             id={Rick.id}

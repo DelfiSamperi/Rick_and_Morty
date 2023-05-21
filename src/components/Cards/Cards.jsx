@@ -12,6 +12,7 @@ export default function Cards(props) {
               return (
                <Card 
                onClose={() => window.alert("Emulamos qe se cierra la tarjeta")}
+               key={character.id}
                name={character.name}
                status={character.status}
                species={character.species}
