@@ -1,15 +1,29 @@
-.searchBar {
-    position: relative;
-    margin-top: 30px;
-    margin-left: 70%;  
+/*
+.container {
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 15px;
+      
 }
 
 .input {
-    border-radius: 10px;
+    border-radius: 5px;
+    height: 25px;
+    margin-right: 2px;
     border: none;
 
 }
 
 .btn {
-
+    border-radius: 3px;
+    height: 25px;
+    color: whitesmoke;
+    background-color: darkslategray;
+    box-shadow: 0 5px 5px black;
+    &:hover {
+        color: darkslategray;
+        background-color: whitesmoke;
+        box-shadow: 0 5px 5px white;
+    } 
 }
+*/

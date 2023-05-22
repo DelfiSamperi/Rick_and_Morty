@@ -1,17 +1,14 @@
-.cards {
-    width: 100%;
-    position: relative;
+/*
+.cardsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    width: 100%;
+    position: absolute;
     margin-top: 40px;
     padding: 50px;
         
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat;   
 }
-
-/* .Cards :hover{
-    transform: scale(0.8);
-   }
-   */
+*/

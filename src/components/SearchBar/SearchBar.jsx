@@ -1,16 +1,31 @@
 import React from "react";
 import './SearchBar.css';
+import { useState } from 'react';
 
 export default function SearchBar(props) {
-      
+   const { onSearch } = props;
+   const [id, setId] = useState('');
+
+   const handleChange = (event) => {
+      const {value} = event.target;
+      setId(value);
+      console.log('id: ', id);
+   }
+   
    return (
-      
-      <div className="searchBar">
+
+      <div className="container">
+
+         <input
+            type='text'
+            name='search'
+            id='search'
+            onChange={handleChange}
          
-         <input type='search' />
-         <button className="btn" onClick={(id) => {props.onSearch(id)}}>Agregar</button>
-      
-      </div> 
-      
+         />
+         <button className="btn" onClick={() => { onSearch(id); /* setID('') con la ultima borro el valor del input*/}}>Agregar</button>
+
+      </div>
+
    );
 }

@@ -4,10 +4,10 @@ import './Card.css';
 export default function Card(props) {
 
     return (
-        <div className="card">
-            <button onClick={props.onClose}>X</button>
+        <div className="container">
+            <button onClick={() => props.onClose(props.id)}>X</button>
             
-            <div className="info">
+            <div className="dataContainer">
                 <h2>{props.name}</h2>
                 <h2>{props.status} </h2>
                 <h4>{props.species}</h4>
