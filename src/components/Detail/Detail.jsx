@@ -7,23 +7,20 @@ import { Link } from 'react-router-dom';
 export default function Detail(props) {
     
     const { id } = useParams();
+    console.log('id en Detail. ', useParams());
     const [character, setCharacter] = useState({});
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${props.id}`)
-        .then((response) => response.json())
-        .then((char) => {
-            if (char.name) {
-                setCharacter(char);
+        axios(`https://rickandmortyapi.com/api/character/${id}`)
+        .then(({data}) => {
+            if (data.name) {
+                setCharacter(data);
             } else {
                 window.alert('No hay personajes con ese ID');
             }
         })
-        .catch((error) =>{
-            window.alert('No hay personaje con ese ID')
-        })
         return setCharacter({});
-    }, [props.id]);
+    }, [id]);
 
     return (
         <div>
