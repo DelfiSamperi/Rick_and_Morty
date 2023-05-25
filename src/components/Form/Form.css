@@ -1,5 +1,14 @@
+.formulario {
+    margin-top: 100px;
+}
+
+
 .warning {
     border: red;
+}
+
+.success {
+    border: #00ccff;
 }
 
 .danger {

@@ -1,16 +1,32 @@
 import './App.css'
 import Nav from './components/Nav/Nav';
 import Cards from './components/Cards/Cards';
-import { useState } from 'react';
+import { useState, useEffect, useNavigate } from 'react';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom'; 
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
+import PageNotFound from './components/404/PageNotFound';
 
 function App() {
 
    const [characters, setCharacters] = useState([]);
+   const [ access, setAccess] = useState(false);
+   const email = 'delfi@mail.com'
+   const password = 'hola123'
+   const navigate = useNavigate();
+
+   const login = (userData) => {
+      if(userData.email === email && userData.password === password) {
+         setAccess(true)
+         navigate(()=>{'/home'})
+      }
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
 
    const onSearch = (id) => {
       //id: evento que viene desde la searchbar
@@ -38,10 +54,11 @@ function App() {
          
          <Nav onSearch={onSearch} />
          <Routes>
+            <Route exact path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail />} />
-            <Route path='/' element={<Form />} />
+            <Route path='*' element={PageNotFound} />
          </Routes>
          
          
