@@ -8,7 +8,7 @@ export default function Nav(props) {
 
     return (
         <div className="nav">
-            <NavLink  to='/about' activeclassname='active'>About</NavLink>
+            <NavLink to='/about' activeclassname='active'>About</NavLink>
             <NavLink to='/home' activeclassname='active'>Home</NavLink>
             <SearchBar onSearch={onSearch} />
         </div>

@@ -15,7 +15,7 @@ function App() {
    const [ access, setAccess] = useState(false);
    const email = 'delfi@mail.com'
    const password = 'hola123'
-   const navigate = useNavigate();
+   //const navigate = useNavigate();
 
    const login = (userData) => {
       if(userData.email === email && userData.password === password) {
@@ -24,9 +24,9 @@ function App() {
       }
    }
 
-   useEffect(() => {
-      !access && navigate('/');
-   }, [access]);
+   // useEffect(() => {
+   //    !access && navigate('/');
+   // }, [access]);
 
    const onSearch = (id) => {
       //id: evento que viene desde la searchbar

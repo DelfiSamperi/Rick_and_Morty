@@ -1,48 +1,70 @@
-/*
+
 .container{
     background-color: rgba(224, 183, 243, .7);
     border-radius: 10px;
     position: relative;
-    width: 140px;
-    height: 280px;
-    margin: 20px;
-    padding: 10px;
-    box-shadow: 0 0 10px darkgray;
+    width: 190px;
+    height: 300px;
+    margin: 15px; 
+    text-align: center;
+    color: rgb(34, 34, 34);
+    padding-bottom: 10px; 
+    box-shadow: 0 0 10px black;
     &:hover {
         transform: scale(0.9);
     } 
 }
 
-.container button {
-    width: 20px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    
+}
+
+.buttonContainer button {
+    /* background-color: salmon; */
+    color: black;
     &:hover {
         box-shadow: 0 2px 2px whitesmoke;
-        background-color: crimson;
+        cursor: pointer;
     }
 }
 
 .dataContainer {
+    /*
+    text-align: center;
     color: rgb(34, 34, 34);
-    padding: 5px;
-    text-align: center;  
+    */
+    
 }
+
+/*
+a:link { 
+    text-decoration-line: none;
+    text-decoration-color: blueviolet;
+}
+
+a:visited {
+text-decoration-line: none;
+text-decoration-color: rgb(34, 34, 34);
+}
+*/
+
 
 .dataContainer h2{
     margin: 2px;
-    font-size: 15px;
+    font-size: 18px;
+    
 }
 
 .dataContainer h4 {
     margin: 2px;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .image{
-    width: 130px;
-    border-radius: 20%;
-    margin-top: 15px;
+    width: 140px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
 }
-*/

@@ -1,14 +1,13 @@
-/*
+
 .cardsContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-
+    justify-content: space-between;
+    /*
     width: 100%;
-    position: absolute;
-    margin-top: 40px;
+    position: relative;
+    margin-top: 60px;
     padding: 50px;
-        
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
+    */   
 }
-*/

@@ -1,6 +1,7 @@
 //ESTE ARCHIVO ERA PARA TOMAR DATOS ANTES DE USAR UNA API, AHORA YA NO ME SIRVE
 
-export const Rick = {
+ /*
+ export const Rick = {
     id: 1,
     name: 'Rick Sanchez',
     status: 'Alive',
@@ -12,6 +13,7 @@ export const Rick = {
     },
     image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
 }
+*/
 
 const characters = [
     {

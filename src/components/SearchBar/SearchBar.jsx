@@ -14,7 +14,7 @@ export default function SearchBar(props) {
    
    return (
 
-      <div className="container">
+      <div className="searchContainer">
 
          <input
             type='text'
@@ -23,7 +23,7 @@ export default function SearchBar(props) {
             onChange={handleChange}
          
          />
-         <button className="btn" onClick={() => { onSearch(id), setId('') /*con la ultima borro el valor del input*/}}>Agregar</button>
+         <button onClick={() => { onSearch(id), setId('') /*con la ultima borro el valor del input*/}}>Agregar</button>
 
       </div>
 

@@ -6,11 +6,13 @@ export default function Card(props) {
 
     return (
         <div className="container">
-            <button onClick={() => props.onClose(props.id)}>X</button>
-            
+            <div className="buttonContainer">
+            <button onClick={() => props.onClose(props.id)} >X</button>
+            </div>
+                        
             <div className="dataContainer">
                 <Link to={`/detail/${props.id}`}>
-                    <h2>{props.name}</h2>
+                    <h2 className="link">{props.name}</h2>
                 </Link>
                 <h2>{props.status} </h2>
                 <h4>{props.species}</h4>
