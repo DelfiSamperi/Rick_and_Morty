@@ -30,8 +30,10 @@ function App() {
 
    const onSearch = (id) => {
       //id: evento que viene desde la searchbar
-      //peticion a la API
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
+      //peticion a la API cusndo era solo front
+      //axios(`https://rickandmortyapi.com/api/character/${id}`)
+      //ahora pedira al server
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(response => response.data)
       .then((data) => { //si recibe respuesta entonces...
          if (data.name) {

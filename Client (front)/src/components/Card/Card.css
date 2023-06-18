@@ -31,15 +31,13 @@
     }
 }
 
+/*
 .dataContainer {
-    /*
+    
     text-align: center;
     color: rgb(34, 34, 34);
-    */
-    
 }
 
-/*
 a:link { 
     text-decoration-line: none;
     text-decoration-color: blueviolet;
