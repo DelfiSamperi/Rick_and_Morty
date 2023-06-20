@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import PageNotFound from './components/404/PageNotFound';
+import Favorites from './components/Favorites/Favs';
 
 function App() {
 
@@ -17,11 +18,24 @@ function App() {
    const password = 'hola123'
    //const navigate = useNavigate();
 
+   //funcion login cuando solo tenemos el front
+   /*
    const login = (userData) => {
       if(userData.email === email && userData.password === password) {
          setAccess(true)
          navigate(()=>{'/home'})
       }
+   }
+   */
+  //funcion login vinculando al server
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    // useEffect(() => {
@@ -60,9 +74,9 @@ function App() {
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail />} />
-            <Route path='*' element={PageNotFound} />
+            <Route path='*' element={<PageNotFound/>} />
+            <Route path='/favorites' element={<Favorites/>} />
          </Routes>
-         
          
       </div>
    );
