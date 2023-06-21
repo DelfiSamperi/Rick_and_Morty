@@ -36,7 +36,7 @@ const getCharById = (req,res) => {
     .then((response) => response.data)
     .then((data) => { //succes handler / fullfilled => value
         if(data) {
-            const character = {     
+            let character = {     
                 id : data.id,           
                 name: data.name,        
                 gender: data.gender,    
@@ -46,12 +46,12 @@ const getCharById = (req,res) => {
                 status: data.status     
             }
             //express no necesita content.type y eso, ya viene configurado
-            res.send(200).json(character)
+            return res.status(200).json(character)
         } else {
-            res.status(404).send({error: 'Not Found'})
+            return res.status(404).send('Not Found')
         }
     })
-    .catch((error)=>res.status(500).send({error: 'server error'}));    
+    .catch((error)=>res.status(500).send(error.message));    
 }
 
 module.exports = { getCharById };

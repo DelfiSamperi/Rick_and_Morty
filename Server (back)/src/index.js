@@ -43,6 +43,7 @@ http.createServer((req,res) => {
 const express = require('express');
 const server = express();
 const PORT = 3001;
+
 const router = require('./routes/indexRoutes');
 const morgan = require('morgan');
 
@@ -69,6 +70,7 @@ server.use((req, res, next) => {
 //3° Middleware -> dirige a las rutas que se usaran
 server.use("/rickandmorty", router );
 
+//pongo a escuchar al servidor
 server.listen(PORT, () => {
    console.log('Server raised in port: ' + PORT);
    //console.log(`Server raised in port: ${PORT}`);

@@ -7,12 +7,14 @@ const {postFav, deleteFav} = require('../controllers/handleFavorites');
 //EN UNA SOLA LINEA
 const router = require('express').Router();
 
-router.get("/character/:id", getCharById );
+//RUTAS
+router.get("/character/:id", getCharById);
 
-router.get("/login", login );
+router.get("/login", login);
 
-router.post("/fav", postFav );
+router.post("/fav", postFav);
 
-router.delete("/fav/:id", deleteFav );
+router.delete("/fav/:id", deleteFav);
 
+//exportacion de rutas
 module.exports = router ;
