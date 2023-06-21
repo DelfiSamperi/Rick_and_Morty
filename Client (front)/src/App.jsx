@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import PageNotFound from './components/404/PageNotFound';
+import Favs from './components/Favs/Favs';
 const EMAIL = 'delfi@mail.com';
 const PASSWORD= 'hola123';
 
@@ -71,9 +72,9 @@ function App() {
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
+            <Route path='/favorites' element={<Favs onClose={onClose} />} />
             <Route path='*' element={PageNotFound} />
          </Routes>
-
 
       </div>
    );

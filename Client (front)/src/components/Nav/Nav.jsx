@@ -10,6 +10,7 @@ export default function Nav(props) {
         <div className="nav">
             <NavLink to='/about' activeclassname='active'>About</NavLink>
             <NavLink to='/home' activeclassname='active'>Home</NavLink>
+            <NavLink to='/favorites' activeclassname='active'>Favs</NavLink>
             <SearchBar onSearch={onSearch} />
         </div>
     )
