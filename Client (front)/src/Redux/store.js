@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducer'; 
 import thunk from 'redux-thunk';
 //con el de arriba podemos usar redux dev tools
+//import { configureStore } from '@reduxjs/toolkit';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // esta línea es para conectar con la extensión del navegador => REDUX DEVTOOLS 
