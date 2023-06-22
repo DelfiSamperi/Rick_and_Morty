@@ -32,8 +32,8 @@ const Favorites = ({ myFavorites }) => {
                 <option value='unknown'>unknown</option>
             </select>
 
-            {  
-            myFavorites?.map(character => (  
+            {  myFavorites.length &&
+            myFavorites.map(character => (  
                     <Card
                             key={character.id}
                             id={character.id}

@@ -5,20 +5,20 @@ import { addFav, removeFav } from "../../Redux/actions";
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-const Card = (props) => {
-
+const Card = ({id, name, status, origin, species, image, gender, onClose, removeFav, addFav, myFavorites}) => {
+    
     const [isFav, setFavs] = useState(false);
 
-    useEffect(() => {
-        props.myFavorites.forEach((fav)=> {
-            if(fav.id === props.id) {
+    /*useEffect(() => {
+        myFavorites.forEach((fav) => {
+            if (fav.id === id) {
                 setFavs(true);
             }
         })
-    }, [props.myFavorites]);
-
+    }, [myFavorites]);
+*/
     const handleFavorite = () => {
-        isFav ? props.removeFav(props.id) : props.addFav(props)
+        isFav ? removeFav(id) : addFav({id, name, status, origin, species, image, gender, onClose})
         setFavs(!isFav)
     }
 
@@ -38,41 +38,45 @@ const Card = (props) => {
     return (
         <div className="container">
             <div className="buttonContainer">
-            {
+                { /*
                     isFav ? (
                         <button onClick={handleFavorite}>❤️</button>
                     ) : (
                         <button onClick={handleFavorite}>🤍</button>
-                    )
+                    ) */
                 }
-            <button onClick={() => props.onClose(props.id)}>X</button>
-            </div>
-                        
-            <div className="dataContainer">
-                <Link to={`/detail/${props.id}`}>
-                    <h2 className="link">{props.name}</h2>
-                </Link>
-                <h2>{props.status} </h2>
-                <h4>{props.species}</h4>
-                <h4>{props.gender}</h4>
-                <h4>{props.origin}</h4>
+                {( //lo de arriba pero mas simple
+                <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍'}</button>
+                )}
+                
+                <button onClick={() => onClose(id)}>X</button>
             </div>
 
-            <img className="image" src={props.image} alt={props.name} />
+            <div className="dataContainer">
+                <Link to={`/detail/${id}`}>
+                    <h2 className="link">{name}</h2>
+                </Link>
+                <h2>{status} </h2>
+                <h4>{species}</h4>
+                <h4>{gender}</h4>
+                <h4>{origin}</h4>
+            </div>
+
+            <img className="image" src={image} alt={name} />
         </div>
     );
 }
-
-const mapStateToProps = (state) => {
-    return {
-        myFavorites: state.myFavorites
-    }
-};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addFav: (character) => dispatch(addFav(character)),
         removeFav: (id) => dispatch(removeFav(id))
+    }
+};
+
+const mapStateToProps = (state) => {
+    return {
+        myFavorites: state.myFavorites
     }
 };
 
