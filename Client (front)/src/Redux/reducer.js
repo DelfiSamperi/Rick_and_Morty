@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actions";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./types";
 
 const initialState = {
     myFavorites: [],
@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 myFavorites: state.allFavChars
             }
-            const allFavCharsFiltered = state[allFavChars].filter(fav =>
+            const allFavCharsFiltered = state.allFavChars.filter(fav =>
                 fav.gender === action.payload
             );
             return {

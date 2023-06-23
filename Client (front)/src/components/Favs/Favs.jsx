@@ -19,12 +19,12 @@ const Favorites = ({ myFavorites }) => {
 
     return (  
         <div className='favsContainer'>
-            <select onChange={handleOrder}>
+            <select name='order' onChange={handleOrder}>
                 <option value='A'>Ascendente</option>
                 <option value='D'>Descendente</option>
             </select>
 
-            <select onChange={handleFilter}>
+            <select name='filter' onChange={handleFilter}>
                 <option value="All">All</option>
                 <option value='Male'>Male</option>
                 <option value='Female'>Female</option>
@@ -32,20 +32,22 @@ const Favorites = ({ myFavorites }) => {
                 <option value='unknown'>unknown</option>
             </select>
 
-            {  myFavorites.length &&
-            myFavorites.map(character => (  
+            { // myFavorites.length &&
+            myFavorites.map((character) => {
+                return (
                     <Card
-                            key={character.id}
-                            id={character.id}
-                            name={character.name}
-                            status={character.status}
-                            species={character.species}
-                            gender={character.gender}
-                            origin={character.origin?.name}
-                            image={character.image}
-                            onClose={character.onClose}
-                        />
-                ))
+                        key={character.id}
+                        id={character.id}
+                        name={character.name}
+                        status={character.status}
+                        species={character.species}
+                        gender={character.gender}
+                        origin={character.origin?.name}
+                        image={character.image}
+                        onClose={character.onClose} 
+                    />
+                );
+            })
             }
         </div>
     );

@@ -8,15 +8,15 @@ import { useState, useEffect } from 'react';
 const Card = ({id, name, status, origin, species, image, gender, onClose, removeFav, addFav, myFavorites}) => {
     
     const [isFav, setFavs] = useState(false);
-/*
-    useEffect(() => {
+
+   /* useEffect(() => {
         myFavorites.forEach((fav) => {
             if (fav.id === id) {
                 setFavs(true);
             }
         })
     }, [myFavorites]);
-*/
+    */
     const handleFavorite = () => {
         isFav ? removeFav(id) : addFav({id, name, status, origin, species, image, gender, onClose, myFavorites})
         setFavs(!isFav)

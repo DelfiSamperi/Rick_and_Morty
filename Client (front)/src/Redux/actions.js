@@ -1,8 +1,4 @@
-export const ADD_FAV = 'ADD_FAV';
-export const REMOVE_FAV = 'REMOVE_FAV';
-export const FILTER = 'FILTER';
-export const ORDER = 'ORDER';
-
+import { FILTER, ORDER } from "./types";
 import axios from 'axios';
 
 //action solo con el front
@@ -32,7 +28,7 @@ export const addFav = (character) => {
         return async (dispatch) => {
             const { data } = await axios.post(endpoint, character)
             return dispatch({
-                type: ADD_FAV,
+                type: 'ADD_FAV',
                 payload: data,
             });
         };
@@ -67,7 +63,7 @@ export const removeFav = (id) => {
         return async (dispatch) => {
             const { data } = await axios.delete(endpoint)
             return dispatch({
-                type: REMOVE_FAV,
+                type: 'REMOVE_FAV',
                 payload: data,
             });
         }
