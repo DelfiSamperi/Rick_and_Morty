@@ -8,18 +8,34 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         //add_fav solo front 
+        /*
         case ADD_FAV:
             return {
                 ...state,
                 myFavorites: action.payload,
                 allFavChars: action.payload
             }
+            */
+        //addFav desde el back
+        case ADD_FAV:
+            return {
+                ...state,
+                myFavorites: action.payload,
+                allCharacters: action.payload
+            };
         //remove fav solo front
+        /*
         case REMOVE_FAV:
             return {
                 ...state,
                 myFavorites: state.myFavorites.filter(fav => fav.id !== Number(action.payload))
             }
+            */
+        case 'REMOVE_FAV':
+            return {
+                ...state,
+                myFavorites: action.payload
+            }; 
         case FILTER:
             // EXTRA: => Caso "All"
             if (action.payload === "All") return {

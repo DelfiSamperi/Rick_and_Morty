@@ -9,9 +9,10 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import PageNotFound from './components/404/PageNotFound';
 import Favs from './components/Favs/Favs';
+/*
 const EMAIL = 'delfi@mail.com';
 const PASSWORD= 'hola123';
-
+*/
 function App() {
 
    const [characters, setCharacters] = useState([]);
@@ -21,14 +22,28 @@ function App() {
    const [access, setAccess] = useState(false);
    
    const navigate = useNavigate();
-
+   
+   //de cuando el login se sacaba del front
+   /*
    const login = (userData) => {
       if (userData.email === EMAIL && userData.password === PASSWORD) {
          setAccess(true)
          navigate('/home');
       }
    };
-
+   */
+   //login desde el back
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
+    
    useEffect(() => {
        !access && navigate('/');
    }, [access]);
