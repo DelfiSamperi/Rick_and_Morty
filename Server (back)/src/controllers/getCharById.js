@@ -27,7 +27,7 @@ axios.get(`https://rickandmortyapi.com/api/character/${id}`)
 
 //CREANDO CONTROLLER CON EXPRESS.JS
 const URL = "https://rickandmortyapi.com/api/character/";
-
+/*
 const getCharById = (req,res) => {
     const { id } = req.params;
     axios.get(URL + id) //devuelve una promesa con caso de exito o error (contemplarlos)
@@ -50,6 +50,30 @@ const getCharById = (req,res) => {
         }
     })
     .catch((error)=>res.status(500).send(error.message));    
+}
+*/
+
+//ASYNC AWAIT
+const getCharById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { data } = await axios.get(URL + id);
+        const character = {
+            id: data.id,
+            status: data.status,
+            name: data.name,
+            species: data.species,
+            origin: data.origin,
+            image: data.image,
+            gender: data.gender
+        }
+        return data.name
+            ? res.status(200).json(character)
+            : res.status(404).send("Not found")
+    
+        } catch (error) {
+        return res.status(500).send(error.message);
+    }
 }
 
 module.exports = { getCharById };

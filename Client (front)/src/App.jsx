@@ -20,9 +20,9 @@ function App() {
    const { pathname } = useLocation();
 
    const [access, setAccess] = useState(false);
-   
+
    const navigate = useNavigate();
-   
+
    //de cuando el login se sacaba del front
    /*
    const login = (userData) => {
@@ -33,21 +33,36 @@ function App() {
    };
    */
    //login desde el back
+   /*
    function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
       axios(URL + `?email=${email}&password=${password}`)
-      .then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
+         .then(({ data }) => {
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
+         });
    }
-    
-   useEffect(() => {
-       !access && navigate('/');
-   }, [access]);
+   */
+   //async await
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const { data } = await (axios(URL + `?email=${email}&password=${password}`));
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      } catch (error) {
+         console.log(error.message);
+      }
+   };
 
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+   /*
    const onSearch = (id) => {
       //id: evento que viene desde la searchbar
       //peticion a la API cusndo era solo front
@@ -65,6 +80,25 @@ function App() {
             console.log(characters)
          });
    }
+   */
+   //ASYNC AWAIT
+   const onSearch = async id => {
+      try {
+         // Evitar duplicados:
+         const characterId = characters.filter(character => character.id === id);
+         // console.log(characterId);
+         if (characterId.length) return alert("The character already exists!!!");
+         if (id < 1 || id > 826) return alert("There is no character with the entered id!!!");
+         const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('¡No hay personajes con este ID!');
+         }
+      } catch (error) {
+         console.log(error.message);
+      }
+   }
 
    const onClose = (id) => {
       setCharacters(characters.filter(character => character.id !== Number(id)));
@@ -76,8 +110,8 @@ function App() {
 
          { // renderizado condicional
             pathname !== "/"
-            ? <Nav onSearch={onSearch} />
-            : null
+               ? <Nav onSearch={onSearch} />
+               : null
             //OTRA OPCION
             // pathname !== '/' && <Nav onSearch={onSearch} />
          }

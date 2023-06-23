@@ -1,7 +1,7 @@
 let myFavorites = [];
 
 const postFav = (req, res) => {
-    const character = req.body; //cuerpo del objeto traido de la API
+    const {character} = req.body; //cuerpo del objeto traido de la API
     
     myFavorites.push(character);
     

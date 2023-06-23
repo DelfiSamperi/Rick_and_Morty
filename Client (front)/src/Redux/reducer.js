@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 myFavorites: action.payload,
-                allCharacters: action.payload
+                allFavChars: action.payload
             };
         //remove fav solo front
         /*
@@ -31,10 +31,11 @@ const reducer = (state = initialState, action) => {
                 myFavorites: state.myFavorites.filter(fav => fav.id !== Number(action.payload))
             }
             */
-        case 'REMOVE_FAV':
+        case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites: action.payload
+                myFavorites: action.payload,
+                allFavChars: action.payload
             }; 
         case FILTER:
             // EXTRA: => Caso "All"
@@ -42,12 +43,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 myFavorites: state.allFavChars
             }
-            const allFavCharsFiltered = state.allFavChars.filter(fav =>
+            const allFavCharsFiltered = state[allFavChars].filter(fav =>
                 fav.gender === action.payload
             );
             return {
                 ...state,
-                myFavorites: allFavCharsFiltered
+                myFavorites: allFavCharsFiltered,
             }
         case ORDER:
             const allFavCharsCopy = [...state.allFavChars];

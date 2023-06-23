@@ -20,6 +20,7 @@ const Card = ({id, name, status, origin, species, image, gender, onClose, remove
     const handleFavorite = () => {
         isFav ? removeFav(id) : addFav({id, name, status, origin, species, image, gender, onClose, myFavorites})
         setFavs(!isFav)
+        console.log('fav cambiado')
     }
 
     //seria lo mismo que:
