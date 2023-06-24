@@ -1,3 +1,5 @@
+//ESTO YA NO SIRVE CDO TENEMOS LA DATABASE
+/*
 let myFavorites = [];
 
 const postFav = (req, res) => {
@@ -22,3 +24,4 @@ module.exports = {
     postFav,
     deleteFav
 };
+*/
