@@ -39,8 +39,9 @@ http.createServer((req,res) => {
 */
 
 // AHORA USANDO EXPRESS (lo instalo como dependencia)
+/*
 const express = require('express');
-const server = express();
+const express = require('express');
 const PORT = 3001;
 
 const router = require('./routes/indexRoutes');
@@ -70,7 +71,28 @@ server.use((req, res, next) => {
 server.use("/rickandmorty", router );
 
 //pongo a escuchar al servidor
-server.listen(PORT, () => {
-   console.log('Server raised in port: ' + PORT);
-   //console.log(`Server raised in port: ${PORT}`);
+    server.listen(PORT, () => {
+        console.log('Server raised in port: ' + PORT);
+        //console.log(`Server raised in port: ${PORT}`);
+     });
+*/
+
+//TEST modularizo en app.js
+const server = require('./app');
+const PORT = 3001;
+//INSTANCIA DE SEQUELIZE
+const { conn } = require('./DB_connection');
+
+//pongo a escuchar al servidor
+//SEQUELIZE
+//force: true dropea la db y genera cambios
+//si no quiero mas cambios pongo force:false
+conn.sync({force: true})
+.then(()=> {
+    server.listen(PORT, () => {
+        console.log('Server raised in port: ' + PORT);
+        //console.log(`Server raised in port: ${PORT}`);
+    });
 });
+    
+  

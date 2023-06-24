@@ -10,11 +10,11 @@ module.exports = (sequelize) => {
       email: {
          type: DataTypes.STRING,
          allowNull: false,
-         isEmail: true
+         isEmail: true //constrain
       },
       password: {
          type: DataTypes.STRING,
          allowNull: false
       }
-   }, { timestamps: false });
+   }, {timestamps: false});
 };

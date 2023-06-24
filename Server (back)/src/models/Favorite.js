@@ -5,29 +5,23 @@ module.exports = (sequelize) => {
       id: {
          type: DataTypes.INTEGER,
          allowNull: false,
-         primaryKey: true
+         primaryKey: true,
       },
       name: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: false,
       },
       status: {
-         type: DataTypes.ENUM(
-            'Alive',
-            'Dead',
-            'Unknown'
-         ), allowNull: false  
+         type: DataTypes.ENUM('Alive','Dead','unknown'),
+         allowNull: false,
       },
       species: {
          type: DataTypes.STRING,
          allowNull: false
       },
-      gender: {type: DataTypes.ENUM(
-         'Female',
-         'Male',
-         'Genderless',
-         'Unknown'
-      ), allowNull: false
+      gender: {
+         type: DataTypes.ENUM('Female','Male','Genderless','unknown'),
+         allowNull: false
       },
       origin: {
          type: DataTypes.STRING,
@@ -35,7 +29,7 @@ module.exports = (sequelize) => {
       },
       image: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull:false
       }
-   }, { timestamps: false });
+   }, {timestamps: false})       
 };
